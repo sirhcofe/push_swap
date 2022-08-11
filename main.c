@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/10 20:42:03 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/08/11 18:34:59 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,6 @@ void	initiate_stack(t_stacks *stacks, char **array)
 		stacks->a[i] = ft_atoi(array[i]);
 		i++;
 	}
-	i = 0;
-	while (i < stacks->a_len)
-	{
-		printf("-%d-\n", stacks->a[i]);
-		i++;
-	}
 }
 
 char	**parse_cmd_argument(int argc, char **argv)
@@ -66,6 +60,7 @@ char	**parse_cmd_argument(int argc, char **argv)
 	int		i;
 
 	array = NULL;
+	temp = NULL;
 	if (argc < 2)
 		error(1);
 	else if (argc == 2)
@@ -80,7 +75,7 @@ char	**parse_cmd_argument(int argc, char **argv)
 			i++;
 		}
 		array = ft_split(temp, ' ');
-		// free(temp);.
+		free(temp);
 	}
 	return (array);
 }
@@ -89,11 +84,16 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	char		**array;
-	// int			i;
 
 	array = parse_cmd_argument(argc, argv);
 	error_check(array);
 	stacks = malloc(sizeof(t_stacks));
 	initiate_stack(stacks, array);
-	swap(stacks, 'a');
+	merge_sort(stacks, 0, stacks->a_len);
+	// int	i = 0;
+	// while (i < stacks->a_len)
+	// {
+	// 	printf("-%d-\n", stacks->a[i]);
+	// 	i++;
+	// }
 }

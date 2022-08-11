@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 14:06:13 by chenlee           #+#    #+#              #
-#    Updated: 2022/08/10 20:37:43 by chenlee          ###   ########.fr        #
+#    Updated: 2022/08/11 22:07:22 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,11 @@ NAME			=	libpushswap.a
 
 MAIN			=	main.c
 
-SRC				=	error_msg.c		\
-					move_stack.c	\
-					push.c			\
-					rotate.c		\
+SRC				=	error_msg.c			\
+					move_stack.c		\
+					push.c				\
+					rotate.c			\
+					reverse_rotate.c	\
 					swap.c
 
 LIBFT			=	libft
@@ -36,6 +37,12 @@ SRCE_DIR		=	libft			\
 
 vpath %.c $(SRCE_DIR)
 
+all:				$(NAME) main.c
+					$(CC) $(CFLAGS) -L. -lpushswap -Llibft -lft main.c -o push_swap
+
+t:					all
+					./push_swap 12 23 34 45
+					
 $(OBJS_DIR)%.o:		%.c
 					@mkdir -p $(OBJS_DIR)
 					@echo "Compiling: $<"
@@ -43,24 +50,23 @@ $(OBJS_DIR)%.o:		%.c
 
 $(NAME):			$(OBJS)
 					@make -C $(LIBFT)
-					@ar rc $(NAME) $(OBJS) $(LIBFT_OBJS)
+					@ar rc $(NAME) $(OBJS)
 					@echo "  ---------------------"
 					@echo " |   Push Swap Done!   |"
 					@echo "  ---------------------"
-
-all:				$(NAME) main.c
-					@$(CC) $(CFLAGS) -fsanitize=address -g3 -L. -lpushswap main.c -o push_swap
 
 bonus:				$(NAME)
 
 clean:
 					@rm -rf $(OBJS_DIR)
-					@rm -rf $(LIBFT_OBJS_DIR)
+					@rm -rf $(LIBFT_OBJS_DIR) push_swap push_swap.dSYM
 					@echo "Remove: $(OBJS_DIR)"
 					@echo "Remove: $(LIBFT_OBJS_DIR)"
 
 fclean:				clean
 					@rm -rf $(NAME)
+					@rm -rf libft/libft.a
 					@echo "Remove: $(NAME)"
+					@echo "Remove: libft/libft.a"
 
 re:					fclean all
