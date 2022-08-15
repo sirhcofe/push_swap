@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/11 18:34:59 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/08/12 17:22:11 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 	error_check(array);
 	stacks = malloc(sizeof(t_stacks));
 	initiate_stack(stacks, array);
-	merge_sort(stacks, 0, stacks->a_len);
+	merge_sort(stacks, 0, stacks->a_len - 1);
 	// int	i = 0;
 	// while (i < stacks->a_len)
 	// {
