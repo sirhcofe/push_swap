@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_array_size.c                                   :+:      :+:    :+:   */
+/*   print_numb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 17:17:03 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/09 18:38:28 by chenlee          ###   ########.fr       */
+/*   Created: 2022/08/18 13:42:05 by chenlee           #+#    #+#             */
+/*   Updated: 2022/08/18 13:46:05 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-int	get_size(int *array);
+void	print_numb(t_stacks *stacks)
 {
 	int	i;
 
 	i = 0;
+	printf("---A---\n");
+	while (i < stacks->a_len)
+	{
+		printf("%4d\n", stacks->a[i]);
+		i++;
+	}
+	i = 0;
+	printf("---B---\n");
+	while (i < stacks->b_len)
+	{
+		printf("%4d\n", stacks->b[i]);
+		i++;
+	}
 }

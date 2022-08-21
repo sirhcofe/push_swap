@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 14:06:13 by chenlee           #+#    #+#              #
-#    Updated: 2022/08/11 22:07:22 by chenlee          ###   ########.fr        #
+#    Updated: 2022/08/21 21:25:52 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,20 @@ NAME			=	libpushswap.a
 
 MAIN			=	main.c
 
-SRC				=	error_msg.c			\
+SRC				=	check_argv.c		\
+					error_msg.c			\
+					if_sorted.c			\
+					print_numb.c		\
+					solve_stack.c		\
+					solve_three.c		\
+					selection.c			\
 					move_stack.c		\
 					push.c				\
 					rotate.c			\
 					reverse_rotate.c	\
 					swap.c
+#					merge.c
+
 
 LIBFT			=	libft
 LIBFT_OBJS_DIR	=	libft/objects
@@ -28,20 +36,26 @@ LIBFT_OBJS		=	libft/objects/*.o
 OBJS			=	$(addprefix $(OBJS_DIR), $(notdir $(SRC:.c=.o)))
 
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra
 OBJS_DIR		=	objects/
 
 SRCE_DIR		=	libft			\
 					general_utils	\
-					instructions
+					instructions	\
+					solution
 
 vpath %.c $(SRCE_DIR)
 
 all:				$(NAME) main.c
-					$(CC) $(CFLAGS) -L. -lpushswap -Llibft -lft main.c -o push_swap
+					$(CC) $(CFLAGS) main.c -L. -lpushswap -Llibft -lft -o push_swap
 
 t:					all
-					./push_swap 12 23 34 45
+					./push_swap 1 2 3
+					./push_swap 3 1 2
+					./push_swap 2 3 1
+					./push_swap 1 3 2
+					./push_swap 2 1 3
+					./push_swap 3 2 1
 					
 $(OBJS_DIR)%.o:		%.c
 					@mkdir -p $(OBJS_DIR)

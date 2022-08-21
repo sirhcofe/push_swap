@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 17:10:45 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/10 17:27:38 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/08/18 19:02:33 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_stack(int *array, int size, int direction)
 	if (direction == 'u')
 	{
 		i = 0;
-		while (i < size - 1)
+		while (i < size)
 		{
 			array[i] = array[i + 1];
 			i++;

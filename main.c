@@ -6,30 +6,21 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/12 17:22:11 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/08/21 21:08:53 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	error_check(char **array)
+void	ft_free(char **array)
 {
 	int	i;
-	int	j;
 
-	i = 0;
-	while (array[i] != 0)
-	{
-		j = 0;
-		while (array[i][j] != 0)
-		{
-			if (!ft_isdigit(array[i][j]))
-				error(2);
-			j++;
-		}
-		i++;
-	}
+	i = -1;
+	while (array[++i] != 0)
+		free(array[i]);
+	free(array);
 }
 
 void	initiate_stack(t_stacks *stacks, char **array)
@@ -45,6 +36,9 @@ void	initiate_stack(t_stacks *stacks, char **array)
 	stacks->b = ft_calloc(stacks->len, sizeof(int));
 	stacks->a_len = stacks->len;
 	stacks->b_len = 0;
+	stacks->index = 0;
+	stacks->fhalf_location = 0;
+	stacks->shalf_location = 0;
 	i = 0;
 	while (i < stacks->len)
 	{
@@ -89,11 +83,11 @@ int	main(int argc, char **argv)
 	error_check(array);
 	stacks = malloc(sizeof(t_stacks));
 	initiate_stack(stacks, array);
-	merge_sort(stacks, 0, stacks->a_len - 1);
-	// int	i = 0;
-	// while (i < stacks->a_len)
-	// {
-	// 	printf("-%d-\n", stacks->a[i]);
-	// 	i++;
-	// }
+	check_if_sorted(stacks);
+	solve_stack(stacks);
+	print_numb(stacks);
+	printf("----------------------------\n");
+	free(stacks);
+	ft_free(array);
+	// system("leaks push_swap");
 }
