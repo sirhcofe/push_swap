@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 21:52:16 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/21 21:25:28 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/08/24 20:52:46 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	condition_one(t_stacks *stacks)
 {
-	printf("CONDITION 1 RUNS\n");
 	if (stacks->a[1] < stacks->a[2])
 		rotate(stacks, 'a');
 	else
@@ -27,7 +26,6 @@ void	condition_one(t_stacks *stacks)
 
 void	condition_two(t_stacks *stacks)
 {
-	printf("CONDITION 2 RUNS\n");
 	if (stacks->a[0] < stacks->a[2])
 	{
 		push(stacks, 'b');
@@ -40,7 +38,6 @@ void	condition_two(t_stacks *stacks)
 
 void	condition_three(t_stacks *stacks)
 {
-	printf("CONDITION 3 RUNS\n");
 	if (stacks->a[0] < stacks->a[1])
 		return ;
 	else
