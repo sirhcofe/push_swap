@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/01 20:58:17 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/13 14:48:22 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,23 @@ typedef struct s_stacks
 	int		len;
 	int		a_len;
 	int		b_len;
-	int		index;
-	int		recursion_count;
 	int		grp_alen;
 	int		grp_blen;
+	int		mrg_cond;
+	int		mrg_count;
+	int		sel_cond;
+	int		sel_count;
 	int		sorted_stack_in_a;
 	int		sorted_stack_in_b;
-	int		merge_count;
 	int		end_stack;
 }			t_stacks;
 
 void	error(int condition);
 void	error_check(char **array);
 void	check_stack(t_stacks *stacks);
+void	end_stack_location(t_stacks *stacks);
 void	print_numb(t_stacks *stacks);
+int		ft_oddeven(int num);
 
 void	solve_stack(t_stacks *stacks);
 void	solve_two(t_stacks *stacks);

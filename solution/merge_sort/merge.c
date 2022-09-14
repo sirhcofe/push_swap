@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:19:08 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/29 21:48:18 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/13 21:47:06 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,18 @@ void	merge_sort(t_stacks *stacks, int front, int middle, int rear)
 {
 	stacks->grp_alen = rear - middle;
 	stacks->grp_blen = middle - front + 1;
-	if (stacks->merge_count == 0)
+	if (ft_oddeven(stacks->mrg_count) == 0 && stacks->mrg_count != 0)
+		stacks->mrg_cond++;
+	if (ft_oddeven(stacks->mrg_cond) == 0)
 	{
+		printf("ASC RUN\n");
 		continue_merge(stacks, 1);
-		stacks->merge_count = 1;
 	}
 	else
 	{
+		printf("DSC RUN\n");
 		continue_merge(stacks, 2);
-		stacks->merge_count = 0;
 	}
-	stacks->recursion_count--;
+	stacks->mrg_cond++;
+	stacks->mrg_count++;
 }

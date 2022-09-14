@@ -6,26 +6,13 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 13:27:08 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/03 01:27:42 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/05 16:18:35 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	cond_two(t_stacks *stacks, int pos)
-{
-	int	i;
-
-	i = -1;
-	while (++i < pos)
-		rotate(stacks, 'b');
-	push(stacks, 'b');
-	while (--i != -1)
-		r_rotate(stacks, 'b');
-	stacks->grp_blen++;
-}
-
-void	cond_one(t_stacks *stacks, int pos)
+void	cont_cond_one(t_stacks *stacks, int pos)
 {
 	if (pos == 0 || pos == 3 || pos == stacks->grp_blen)
 	{
@@ -45,6 +32,23 @@ void	cond_one(t_stacks *stacks, int pos)
 		push(stacks, 'b');
 		rotate(stacks, 'b');
 		rotate(stacks, 'b');
+	}
+}
+
+void	final_merge(t_stacks *stacks, int condition, int position)
+{
+	int	i;
+
+	if (condition == 1)
+		cont_cond_one(stacks, position);
+	else
+	{
+		i = -1;
+		while (++i < position)
+			rotate(stacks, 'b');
+		push(stacks, 'b');
+		while (--i != -1)
+			r_rotate(stacks, 'b');
 	}
 	stacks->grp_blen++;
 }
@@ -66,8 +70,8 @@ int	determine_pos(t_stacks *stacks, int condition)
 /**
  * @brief
  * Swaps numbers where:  
- * condition 1: Swaps in descending order;
- * condition 2: Swaps in ascending order
+ * Condition 1: swaps in ascending order;
+ * Condition 2: swaps in descending order.
  */
 void	swapping(t_stacks *stacks, int condition)
 {
@@ -106,9 +110,9 @@ void	continue_merge(t_stacks *stacks, int condition)
 	while (++i < stacks->grp_alen)
 	{
 		pos = determine_pos(stacks, condition);
-		if (condition == 1)
-			cond_one(stacks, pos);
-		else if (condition == 2)
-			cond_two(stacks, pos);
+		if (stacks->grp_blen == stacks->b_len)
+			final_merge(stacks, 1, pos);
+		else
+			final_merge(stacks, 2, pos);
 	}
 }

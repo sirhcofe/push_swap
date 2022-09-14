@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/02 16:04:25 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/13 14:48:44 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ void	initiate_stack(t_stacks *stacks, char **array)
 	stacks->b = ft_calloc(stacks->len, sizeof(int));
 	stacks->a_len = stacks->len;
 	stacks->b_len = 0;
-	stacks->index = 0;
 	stacks->grp_alen = 0;
 	stacks->grp_blen = 0;
+	stacks->mrg_cond = 0;
+	stacks->mrg_count = 0;
+	stacks->sel_cond = 0;
+	stacks->sel_count = 0;
 	stacks->sorted_stack_in_a = 0;
 	stacks->sorted_stack_in_b = 0;
-	stacks->merge_count = 0;
-	stacks->recursion_count = 0;
 	stacks->end_stack = 0;
 	i = -1;
 	while (++i < stacks->len)
@@ -88,11 +89,9 @@ int	main(int argc, char **argv)
 	stacks = malloc(sizeof(t_stacks));
 	initiate_stack(stacks, array);
 	check_stack(stacks);
-	// end_stack_location(stacks);
+	end_stack_location(stacks);
 	solve_stack(stacks);
-	printf("Recursion Count = %d\n", stacks->recursion_count);
 	print_numb(stacks);
-	printf("------------------------------------------------\n");
 	ft_free(stacks, array);
 	free(stacks);
 }

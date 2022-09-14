@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:50:42 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/02 17:50:59 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/13 21:49:28 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ void	cont_a_dsc(t_stacks *stacks, int size)
 		else
 			cont_a(stacks, &m, &n, 3);
 	}
+	m = -1;
+	if (stacks->sorted_stack_in_a == 0 && stacks->a_len != size + 1)
+		while (++m <= size)
+			rotate(stacks, 'a');
 }
 
 void	cont_a_asc(t_stacks *stacks, int size)
@@ -70,15 +74,20 @@ void	cont_a_asc(t_stacks *stacks, int size)
 			cont_a(stacks, &i, &j, 3);
 	}
 	i = -1;
-	if (stacks->a_len != size + 1)
+	if (stacks->sorted_stack_in_a == 0 && stacks->a_len != size + 1)
 		while (++i <= size)
 			rotate(stacks, 'a');
 }
 
 void	selection_to_a(t_stacks *stacks, int size)
 {
-	if (stacks->sorted_stack_in_a == 0)
+	if (ft_oddeven(stacks->sel_cond) == 0)
 		cont_a_asc(stacks, size);
 	else
+	{
+		printf("THIS DSC SHOULD RUN\n");
 		cont_a_dsc(stacks, size);
+	}
+	stacks->sel_cond++;
+	stacks->sel_count++;
 }
