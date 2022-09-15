@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:08:17 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/13 21:40:37 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/15 21:36:30 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,15 @@ void	solution(t_stacks *stacks, int front, int rear)
 {
 	int	middle;
 
-	if (front < rear - 1)
+	if (front < rear)
 	{
 		middle = front + ((rear - front) / 2);
 		solution(stacks, front, middle);
 		solution(stacks, middle + 1, rear);
-		if (rear - front == 2 || rear - front == 3)
-		{
-			printf("MRG COND = %d\n", stacks->mrg_cond);
-			merge_sort(stacks, front, middle, rear);
-		}
-		else if (rear - front == 4)
-		{
-			printf("SEL COND = %d\n", stacks->sel_cond);
-			selection_sort(stacks, rear - front, 1);
-		}
-		else if (rear - front >= 5 && rear - front <= 7)
-			selection_sort(stacks, rear - front, 2);
-		else if (rear - front == 8)
-			selection_sort(stacks, rear - front, 3);
+		if (rear - front == 1)
+			merge_sort(stacks, front, rear);
 		else
-		{
-			printf("SEL COND = %d\n", stacks->sel_cond);
-			selection_sort(stacks, rear - front, 4);
-		}
-		print_numb(stacks);
+			selection_sort(stacks, rear - front);
 	}
 }
 

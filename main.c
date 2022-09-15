@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/13 14:48:44 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/15 21:39:05 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	initiate_stack(t_stacks *stacks, char **array)
 	stacks->b = ft_calloc(stacks->len, sizeof(int));
 	stacks->a_len = stacks->len;
 	stacks->b_len = 0;
-	stacks->grp_alen = 0;
-	stacks->grp_blen = 0;
 	stacks->mrg_cond = 0;
 	stacks->mrg_count = 0;
 	stacks->sel_cond = 0;
@@ -90,6 +88,7 @@ int	main(int argc, char **argv)
 	initiate_stack(stacks, array);
 	check_stack(stacks);
 	end_stack_location(stacks);
+	// print_numb(stacks);
 	solve_stack(stacks);
 	print_numb(stacks);
 	ft_free(stacks, array);

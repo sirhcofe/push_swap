@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/13 14:48:22 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/15 15:01:38 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ typedef struct s_stacks
 	int		len;
 	int		a_len;
 	int		b_len;
-	int		grp_alen;
-	int		grp_blen;
 	int		mrg_cond;
 	int		mrg_count;
 	int		sel_cond;
@@ -45,10 +43,9 @@ void	solve_stack(t_stacks *stacks);
 void	solve_two(t_stacks *stacks);
 void	solve_three(t_stacks *stacks);
 
-void	merge_sort(t_stacks *stacks, int front, int middle, int rear);
-void	continue_merge(t_stacks *stacks, int condition);
+void	merge_sort(t_stacks *stacks, int front, int rear);
 
-void	selection_sort(t_stacks *stacks, int size, int rear);
+void	selection_sort(t_stacks *stacks, int size);
 void	selection_to_a(t_stacks *stacks, int size);
 void	selection_to_b(t_stacks *stacks, int size);
 

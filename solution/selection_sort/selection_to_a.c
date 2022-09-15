@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:50:42 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/13 21:49:28 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/15 15:27:03 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,7 @@ void	selection_to_a(t_stacks *stacks, int size)
 	if (ft_oddeven(stacks->sel_cond) == 0)
 		cont_a_asc(stacks, size);
 	else
-	{
-		printf("THIS DSC SHOULD RUN\n");
 		cont_a_dsc(stacks, size);
-	}
 	stacks->sel_cond++;
 	stacks->sel_count++;
 }

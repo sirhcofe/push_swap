@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/09/13 22:16:18 by chenlee          ###   ########.fr        #
+#    Updated: 2022/09/15 21:47:17 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRC				=	check_argv.c			\
 					solve_two.c				\
 					solve_three.c			\
 					merge.c					\
-					merge_utils.c			\
 					selection.c				\
 					selection_to_a.c		\
 					selection_to_b.c		\
@@ -56,10 +55,10 @@ SRCE_DIR		=	libft					\
 vpath %.c $(SRCE_DIR)
 
 all:				$(NAME) main.c
-					$(CC) $(CFLAGS) main.c -L. -lpushswap -Llibft -lft -o push_swap
+					$(CC) $(CFLAGS) main.c -fsanitize=address -L. -lpushswap -Llibft -lft -o push_swap
 
 t:					all
-					./push_swap  6 12 8 4 5   14 9 16 15       7 17 3 2 10   11 1 13 18
+					./push_swap  7  4  1  2  9  6  8  5  3 
 # ./push_swap 38 53 18 61 2 17 88 91 14 32 41 81 13 6 80 37 57 48 1 67 58 28 95 56 65 29 59 99 44 50 3 46 89 82 93 23 39 79 16 26 69 92 68 45 85 43 49 11 25 55 54 83 31 21 24 52 90 72 74 36 27 34 100 51 66 78 87 64 12 33 5 20 4 71 15 8 63 70 30 35 7 10 76 97 22 77 47 84 9 86 94 98 40 42 73 62 96 75 60 19
 # ./push_swap 1 3 4 2
 # ./push_swap 1 4 2 3

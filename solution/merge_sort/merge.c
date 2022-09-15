@@ -6,12 +6,29 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:19:08 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/13 21:47:06 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/15 17:41:50 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+void	continue_merge(t_stacks *stacks, int condition, int size)
+{
+	if (condition == 'a')
+	{
+		if (stacks->a[0] > stacks->a[1])
+			swap(stacks, 'a');
+	}
+	else if (condition == 'd')
+	{
+		if (stacks->a[0] < stacks->a[1])
+			swap(stacks, 'a');
+	}
+	stacks->mrg_cond++;
+	stacks->mrg_count++;
+	stacks->sorted_stack_in_a++;
+}
 
 /**
  * @brief
@@ -25,22 +42,20 @@
  * @param middle the middle index of the group
  * @param rear   the last index of the group
  */
-void	merge_sort(t_stacks *stacks, int front, int middle, int rear)
+void	merge_sort(t_stacks *stacks, int front, int rear)
 {
-	stacks->grp_alen = rear - middle;
-	stacks->grp_blen = middle - front + 1;
+	int	i;
+
 	if (ft_oddeven(stacks->mrg_count) == 0 && stacks->mrg_count != 0)
 		stacks->mrg_cond++;
 	if (ft_oddeven(stacks->mrg_cond) == 0)
-	{
-		printf("ASC RUN\n");
-		continue_merge(stacks, 1);
-	}
+		continue_merge(stacks, 'a', rear - front);
 	else
+		continue_merge(stacks, 'd', rear - front);
+	i = -1;
+	if (ft_oddeven(stacks->mrg_count) == 1 && stacks->a_len != rear - front + 1)
 	{
-		printf("DSC RUN\n");
-		continue_merge(stacks, 2);
+		while (++i < rear - front + 1)
+			rotate(stacks, 'a');
 	}
-	stacks->mrg_cond++;
-	stacks->mrg_count++;
 }
