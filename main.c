@@ -6,12 +6,11 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/13 14:48:44 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/26 16:52:47 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	ft_free(t_stacks *stacks, char **array)
 {
@@ -42,11 +41,13 @@ void	initiate_stack(t_stacks *stacks, char **array)
 	stacks->grp_blen = 0;
 	stacks->mrg_cond = 0;
 	stacks->mrg_count = 0;
+	stacks->mrg_stack = 0;
 	stacks->sel_cond = 0;
 	stacks->sel_count = 0;
-	stacks->sorted_stack_in_a = 0;
-	stacks->sorted_stack_in_b = 0;
+	stacks->sorted_a = 0;
+	stacks->sorted_b = 0;
 	stacks->end_stack = 0;
+	initiate_edge_case(stacks);
 	i = -1;
 	while (++i < stacks->len)
 		stacks->a[i] = ft_atoi(array[i]);
@@ -89,9 +90,8 @@ int	main(int argc, char **argv)
 	stacks = malloc(sizeof(t_stacks));
 	initiate_stack(stacks, array);
 	check_stack(stacks);
-	end_stack_location(stacks);
+	stacks->end_stack = end_stack_location((long)stacks->a_len);
 	solve_stack(stacks);
-	print_numb(stacks);
 	ft_free(stacks, array);
 	free(stacks);
 }

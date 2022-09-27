@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/09/13 22:16:18 by chenlee          ###   ########.fr        #
+#    Updated: 2022/09/26 16:55:10 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ MAIN			=	main.c
 
 SRC				=	check_argv.c			\
 					check_stack.c			\
+					edge_case.c				\
 					end_location.c			\
 					error_msg.c				\
 					ft_oddeven.c			\
+					power.c					\
 					print_numb.c			\
 					solve_stack.c			\
 					solve_two.c				\
@@ -26,6 +28,8 @@ SRC				=	check_argv.c			\
 					merge.c					\
 					merge_utils.c			\
 					selection.c				\
+					selection_utils_1.c		\
+					selection_utils_2.c		\
 					selection_to_a.c		\
 					selection_to_b.c		\
 					move_stack.c			\
@@ -33,7 +37,6 @@ SRC				=	check_argv.c			\
 					rotate.c				\
 					reverse_rotate.c		\
 					swap.c
-
 
 LIBFT			=	libft
 LIBFT_OBJS_DIR	=	libft/objects
@@ -59,29 +62,7 @@ all:				$(NAME) main.c
 					$(CC) $(CFLAGS) main.c -L. -lpushswap -Llibft -lft -o push_swap
 
 t:					all
-					./push_swap  6 12 8 4 5   14 9 16 15       7 17 3 2 10   11 1 13 18
-# ./push_swap 38 53 18 61 2 17 88 91 14 32 41 81 13 6 80 37 57 48 1 67 58 28 95 56 65 29 59 99 44 50 3 46 89 82 93 23 39 79 16 26 69 92 68 45 85 43 49 11 25 55 54 83 31 21 24 52 90 72 74 36 27 34 100 51 66 78 87 64 12 33 5 20 4 71 15 8 63 70 30 35 7 10 76 97 22 77 47 84 9 86 94 98 40 42 73 62 96 75 60 19
-# ./push_swap 1 3 4 2
-# ./push_swap 1 4 2 3
-# ./push_swap 1 4 3 2
-# ./push_swap 2 1 3 4
-# ./push_swap 2 1 4 3
-# ./push_swap 2 3 1 4
-# ./push_swap 2 3 4 1
-# ./push_swap 2 4 1 3
-# ./push_swap 2 4 3 1
-# ./push_swap 3 1 2 4
-# ./push_swap 3 1 4 2 
-# ./push_swap 3 2 1 4
-# ./push_swap 3 2 4 1
-# ./push_swap 3 4 1 2
-# ./push_swap 3 4 2 1
-# ./push_swap 4 1 2 3
-# ./push_swap 4 1 3 2
-# ./push_swap 4 2 1 3
-# ./push_swap 4 2 3 1
-# ./push_swap 4 3 2 1
-# ./push_swap 4 3 1 2
+					./push_swap -998 363 620 -76 807 348 450 56 145 648 -268 -848 590 -716 -496 -727 223 -900 -603 -187 -884 496 759 -429 939 659 455 -39 -828 825 -498 345 863 241 -516 -940 912 592 902 -24 -252 -955 386 568 717 -944 -502 -868 865 -972 -32 -986 718 181 342 -797 684 629 566 498 -800 -924 546 842 -723 854 638 542 -545 417 -417 -423 479 607 -613 500 -361 -857 887 543 862 403 -421 -856 264 -2 -515 -759 792 16 95 893 -210 600 -206 480 637 489 -548 -380
 					
 $(OBJS_DIR)%.o:		%.c
 					@mkdir -p $(OBJS_DIR)

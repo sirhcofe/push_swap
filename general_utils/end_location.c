@@ -6,17 +6,21 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 20:56:55 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/12 20:21:30 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/24 19:43:14 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	end_stack_location(t_stacks *stacks)
+int	end_stack_location(long size)
 {
-	if ((ft_oddeven(stacks->a_len / 8) == 0 && stacks->a_len % 8 != 0)
-		|| (ft_oddeven(stacks->a_len / 8) == 1 && stacks->a_len % 8 == 0))
-		stacks->end_stack = 0;
+	int	i;
+
+	i = 0;
+	while (!(power_two(i) + 1 <= size && size <= power_two(i + 1)))
+		i++;
+	if (ft_oddeven(i) == 0)
+		return (0);
 	else
-		stacks->end_stack = 1;
+		return (1);
 }
