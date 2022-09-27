@@ -6,11 +6,12 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:50:42 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/26 04:10:58 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/27 21:11:43 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	cont_a(t_stacks *stacks, int *a, int *b, int condition)
 {

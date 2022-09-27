@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/25 21:59:50 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/27 20:35:53 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_stacks
 	int		mrg_stack;
 	int		sel_cond;
 	int		sel_count;
+	int		b_rotate;
 	int		sorted_a;
 	int		sorted_b;
 	int		end_stack;
@@ -51,6 +52,7 @@ int		get_power(int size);
 void	solve_stack(t_stacks *stacks);
 void	solve_two(t_stacks *stacks);
 void	solve_three(t_stacks *stacks);
+void	solve_five(t_stacks *stacks);
 
 void	merge_sort(t_stacks *stacks, int front, int middle, int rear);
 void	continue_merge(t_stacks *stacks, int condition);

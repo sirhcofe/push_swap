@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:19:08 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/26 05:48:07 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/27 20:50:47 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	merge_sort(t_stacks *stacks, int front, int middle, int rear)
 	else
 		continue_merge(stacks, 2);
 	i = -1;
-	if (stacks->sorted_b % 10 == 0)
+	if (stacks->sorted_b % 10 == 0 && stacks->b_len != rear - front + 1)
 		while (++i < (rear - front + 1))
 			rotate(stacks, 'b');
 	stacks->sorted_b += 1;

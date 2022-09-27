@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:25:45 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/26 04:10:54 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/27 21:11:55 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,6 @@ void	cont_b_dsc(t_stacks *stacks, int size)
 		else
 			cont_b(stacks, &m, &n, 3);
 	}
-	m = -1;
-	if (stacks->sorted_b == 0 && stacks->b_len != size + 1)
-		while (++m <= size)
-			rotate(stacks, 'b');
 }
 
 void	cont_b_asc(t_stacks *stacks, int size)

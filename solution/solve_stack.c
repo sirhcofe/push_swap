@@ -6,11 +6,12 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:08:17 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/26 05:43:53 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/27 21:13:04 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 /**
  * @brief
@@ -45,6 +46,8 @@ void	solve_stack(t_stacks *stacks)
 		solve_two(stacks);
 	else if (stacks->a_len == 3)
 		solve_three(stacks);
+	else if (stacks->a_len == 5)
+		solve_five(stacks);
 	else
 		solution(stacks, 0, stacks->a_len - 1);
 	if (stacks->end_stack == 1 || stacks->b_len == 4)
