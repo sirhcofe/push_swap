@@ -6,103 +6,61 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:33:46 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/28 18:08:01 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 22:11:31 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	r_rotate_solve(t_stacks *stacks, int position)
+void	find_two_smallest(t_stacks *stacks, int *array, int times_run)
 {
-	if (position == 3)
-	{
-		push(stacks, 'a');
-		rotate(stacks, 'a');
-		push(stacks, 'a');
-		rotate(stacks, 'a');
-	}
-	else if (position == 2)
-	{
-		r_rotate(stacks, 'a');
-		push(stacks, 'a');
-		rotate(stacks, 'a');
-		if (stacks->b[0] < stacks->a[0])
-		{
-			push(stacks, 'a');
-			rotate(stacks, 'a');
-		}
-		else
-		{
-			rotate(stacks, 'a');
-			push(stacks, 'a');
-		}
-		rotate(stacks, 'a');
-	}
-}
+	int	n;
+	int	temp;
 
-void	rotate_solve(t_stacks *stacks, int position)
-{
-	int	i;
-
-	i = -1;
-	while (++i < position)
-		rotate(stacks, 'a');
-	push(stacks, 'a');
-	rotate(stacks, 'a');
-	while (i < 3)
+	n = 0;
+	if (times_run == 2 && array[0] == stacks->a[0])
+		temp = stacks->a[1];
+	else
+		temp = stacks->a[0];
+	while (++n < 5)
 	{
-		if (stacks->b[0] < stacks->a[0] && stacks->b_len != 0)
-		{
-			push(stacks, 'a');
-			rotate(stacks, 'a');
-		}
-		else
-		{
-			rotate(stacks, 'a');
-			i++;
-		}
+		if (stacks->a[n] < temp)
+			if (stacks->a[n] != array[0])
+				temp = stacks->a[n];
 	}
-	if (stacks->b_len != 0)
+	if (times_run == 1)
 	{
-		push(stacks, 'a');
-		rotate(stacks, 'a');
+		array[0] = temp;
+		find_two_smallest(stacks, array, 2);
 	}
-}
-
-void	cont_solve_five(t_stacks *stacks, int position, int condition)
-{
-	if (condition == 1)
-		rotate_solve(stacks, position);
-	else if (condition == 2)
-		r_rotate_solve(stacks, position);
-}
-
-int	insertion_position(t_stacks *stacks)
-{
-	int	i;
-
-	i = -1;
-	while (++i < 3)
-	{
-		if (stacks->b[0] < stacks->a[i])
-			return (i);
-	}
-	return (i);
+	else if (times_run == 2)
+		array[1] = temp;
 }
 
 void	solve_five(t_stacks *stacks)
 {
-	int	position;
+	int	*array;
+	int	i;
+	int	push_count;
 
-	push(stacks, 'b');
-	push(stacks, 'b');
+	i = 0;
+	push_count = 0;
+	array = malloc(sizeof(int) * 2);
+	find_two_smallest(stacks, array, 1);
+	while (push_count != 2)
+	{
+		if (stacks->a[0] == array[0] || stacks->a[0] == array[1])
+		{
+			push(stacks, 'b');
+			push_count++;
+		}
+		else
+			rotate(stacks, 'a');
+	}
 	solve_three(stacks);
-	if (stacks->b[0] > stacks->b[1])
+	if (stacks->b[0] < stacks->b[1])
 		swap(stacks, 'b');
-	position = insertion_position(stacks);
-	if (position >= 2)
-		cont_solve_five(stacks, position, 2);
-	else
-		cont_solve_five(stacks, position, 1);
+	push(stacks, 'a');
+	push(stacks, 'a');
+	free(array);
 }

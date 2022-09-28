@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/09/28 18:08:46 by chenlee          ###   ########.fr        #
+#    Updated: 2022/09/28 22:01:54 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ all:				$(NAME) main.c
 					$(CC) $(CFLAGS) main.c -L. -lpushswap -Llibft -lft -o push_swap
 
 t:					all
-					./push_swap  -891659560 1097721028 1388536901 1624153046 2054610688
+					./push_swap  1 3 5 2 4
 					
 $(OBJS_DIR)%.o:		%.c
 					@mkdir -p $(OBJS_DIR)
