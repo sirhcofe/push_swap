@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 19:03:52 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/26 16:56:51 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 22:50:43 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	error_check(char **array)
 		neg = 0;
 		while (array[i][j] != 0)
 		{
-			if (array[i][0] == '-')
+			if (array[i][0] == '-' || array[i][0] == '+')
 			{
 				neg++;
 				j++;

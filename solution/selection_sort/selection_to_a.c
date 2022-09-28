@@ -6,12 +6,11 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:50:42 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/27 21:11:43 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 22:28:31 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	cont_a(t_stacks *stacks, int *a, int *b, int condition)
 {
@@ -84,7 +83,16 @@ void	selection_to_a(t_stacks *stacks, int size)
 	plus_sel_stack(stacks, 'a', size);
 	stacks->mrg_stack = 0;
 	i = -1;
-	if (rotate_or_not(stacks, size, 'a') == 0 && stacks->a_len != size + 1)
+	if (rotate_or_not(stacks, size, 'a') == 0 && stacks->a_len != size + 1
+		&& stacks->b_rotate != 0)
+	{
+		while (++i <= size)
+		{
+			rotate(stacks, 'r');
+			stacks->b_rotate--;
+		}
+	}
+	else if (rotate_or_not(stacks, size, 'a') == 0 && stacks->a_len != size + 1)
 	{
 		while (++i <= size)
 			rotate(stacks, 'a');

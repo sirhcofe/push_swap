@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:25:45 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/27 21:11:55 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 22:40:07 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,13 @@ void	selection_to_b(t_stacks *stacks, int size)
 {
 	int	i;
 
+	i = -1;
+	if (stacks->b_rotate != 0)
+	{
+		while (++i < stacks->b_rotate)
+			rotate(stacks, 'b');
+		stacks->b_rotate = 0;
+	}
 	if (ft_oddeven(stacks->sel_cond) == 0)
 		cont_b_asc(stacks, size);
 	else
@@ -86,6 +93,6 @@ void	selection_to_b(t_stacks *stacks, int size)
 	if (rotate_or_not(stacks, size, 'b') == 0 && stacks->b_len != size + 1)
 	{
 		while (++i <= size)
-			rotate(stacks, 'b');
+			stacks->b_rotate++;
 	}
 }

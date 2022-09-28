@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:08:17 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/27 21:13:04 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 22:40:30 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,13 @@ void	solution(t_stacks *stacks, int front, int rear)
 		solution(stacks, front, middle);
 		solution(stacks, middle + 1, rear);
 		if (rear - front == 2 || rear - front == 3)
+		{
 			merge_sort(stacks, front, middle, rear);
+		}
 		else
+		{
 			selection_sort(stacks, front, rear);
+		}
 	}
 }
 

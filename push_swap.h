@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/27 20:35:53 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 23:19:43 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_stacks
 	int		mrg_count;
 	int		mrg_stack;
 	int		sel_cond;
-	int		sel_count;
 	int		b_rotate;
 	int		sorted_a;
 	int		sorted_b;
