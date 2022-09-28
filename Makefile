@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/09/27 21:18:01 by chenlee          ###   ########.fr        #
+#    Updated: 2022/09/28 18:08:46 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ all:				$(NAME) main.c
 					$(CC) $(CFLAGS) main.c -L. -lpushswap -Llibft -lft -o push_swap
 
 t:					all
-					./push_swap  52   20   44   55   70   76   85   73   50   75    9   61   92   10   17   32   22   27   14   37   21   71   58    7   25   66   11   12   51   64   82   78   38   99   90   65   83   57   42   18   95   34   45   91   67   53   93   88   31   96    4   59   86    3   56   40   46    6  100   72   41   39   87   15    2    8    5    1   74   19   97   98   48   49   30   33   24   29   77   80   63   94   81   60   23   28   54   43   47   16   62   13   36   84   26   69   79   68   89   35
+					./push_swap  -891659560 1097721028 1388536901 1624153046 2054610688
+					
 $(OBJS_DIR)%.o:		%.c
 					@mkdir -p $(OBJS_DIR)
 					@echo "Compiling: $<"
@@ -87,7 +88,6 @@ clean:
 fclean:				clean
 					@rm -rf $(NAME)
 					@rm -rf libft/libft.a
-					@rm checker push_swap_run_args.log
 					@echo "Remove: $(NAME)"
 					@echo "Remove: libft/libft.a"
 
