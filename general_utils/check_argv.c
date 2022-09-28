@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 19:03:52 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/28 22:50:43 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/09/28 23:28:17 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	error_check(char **array)
 		{
 			if (array[i][0] == '-' || array[i][0] == '+')
 			{
+				if (neg == 1 || !ft_isdigit(array[i][1]))
+					error(2);
 				neg++;
 				j++;
 			}
