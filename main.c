@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/28 23:19:59 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/10/02 18:30:14 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	initiate_stack(t_stacks *stacks, char **array)
 	initiate_edge_case(stacks);
 	i = -1;
 	while (++i < stacks->len)
-		stacks->a[i] = ft_atoi(array[i]);
+		stacks->a[i] = (int)ft_atoi(array[i]);
 }
 
 char	**parse_cmd_argument(int argc, char **argv)
