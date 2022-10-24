@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 19:03:52 by chenlee           #+#    #+#             */
-/*   Updated: 2022/10/02 18:28:56 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/10/05 17:30:24 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	continue_error_check(char **array, int i)
 			neg++;
 			j++;
 		}
-		else if (!ft_isdigit(array[i][j]))
+		if (!ft_isdigit(array[i][j]))
 			error(2);
 		j++;
 	}
@@ -42,7 +42,7 @@ void	error_check(char **array)
 	while (array[i] != 0)
 	{
 		if (ft_atoi(array[i]) > 2147483647 || ft_atoi(array[i]) < -2147483648)
-			error(5);
+			error(2);
 		else
 			continue_error_check(array, i);
 		i++;
