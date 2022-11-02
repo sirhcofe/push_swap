@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:22:29 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/02 15:40:46 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/10/31 14:07:23 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	error(int condition)
 	}
 	else if (condition == 4)
 		ft_putstr_fd("Error: No duplicates!\n", 1);
-	exit(1);
+	exit(0);
 }

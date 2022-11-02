@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:08:17 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/28 22:40:30 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/02 16:58:39 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,19 @@ void	solution(t_stacks *stacks, int front, int rear)
 		solution(stacks, middle + 1, rear);
 		if (rear - front == 2 || rear - front == 3)
 		{
+			printf("BEFOREEE MERGE && SIZE=%d && COND=%d && COUNT=%d\n", rear - front + 1, stacks->mrg_cond, stacks->mrg_count);
+			print_numb(stacks);
 			merge_sort(stacks, front, middle, rear);
+			printf("AFTERRRR MERGE && SIZE=%d && COND=%d && COUNT=%d\n", rear - front + 1, stacks->mrg_cond, stacks->mrg_count);
+			print_numb(stacks);
 		}
 		else
 		{
+			printf("BEFOREEE SELCT && SIZE=%d && COND=%d && COUNT=%d && SEL=%d\n", rear - front + 1, stacks->mrg_cond, stacks->mrg_count, stacks->sel_cond);
+			print_numb(stacks);
 			selection_sort(stacks, front, rear);
+			printf("AFTERRRR SELCT && SIZE=%d && COND=%d && COUNT=%d && SEL=%d\n", rear - front + 1, stacks->mrg_cond, stacks->mrg_count, stacks->sel_cond);
+			print_numb(stacks);
 		}
 	}
 }

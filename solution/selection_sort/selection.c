@@ -6,23 +6,27 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 16:17:36 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/26 05:34:40 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/02 19:39:56 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-void	modify_mrg_condcount(t_stacks *stacks, int condition)
+void	modify_mrg_condcount(t_stacks *stacks, int size)
 {
-	if (condition == 1 && ft_oddeven(stacks->mrg_count) == 0)
-		stacks->mrg_cond--;
-	else if (condition == 1 && ft_oddeven(stacks->mrg_count) == 1)
-		stacks->mrg_count++;
-	else if (condition == 2)
-	{
-		stacks->mrg_cond--;
-		stacks->mrg_count++;
-	}
+	int	group;
+
+	group = ((size <= 17) * 1) + ((size > 17 && size < 33) * 2);
+	// if (ft_oddeven(stacks->mrg_cond) == 1 && ft_oddeven(stacks->mrg_count) == 1)
+	// {
+	// 	stacks->mrg_cond--;
+	// 	stacks->mrg_count++;
+	// }
+	if (ft_oddeven(stacks->mrg_count) == 0)
+		stacks->mrg_cond -= group;
+	else if (ft_oddeven(stacks->mrg_count) == 1)
+		stacks->mrg_count += group;
 }
 
 void	big_selection(t_stacks *stacks, int size)
@@ -61,5 +65,8 @@ void	selection_sort(t_stacks *stacks, int front, int rear)
 	else
 		continue_selection(stacks, rear - front, 2);
 	if (rear - front >= 8)
-		modify_mrg_condcount(stacks, 1);
+		modify_mrg_condcount(stacks, rear - front + 1);
 }
+
+	// if (rear - front >= 8)
+	// 	modify_mrg_condcount(stacks, 1);

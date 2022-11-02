@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/10/02 18:30:14 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/02 16:44:57 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_free(t_stacks *stacks, char **array)
 	free(array);
 	free(stacks->a);
 	free(stacks->b);
+	free(stacks->edge_case);
 }
 
 void	initiate_stack(t_stacks *stacks, char **array)
@@ -92,6 +93,7 @@ int	main(int argc, char **argv)
 	check_stack(stacks);
 	stacks->end_stack = end_stack_location((long)stacks->a_len);
 	solve_stack(stacks);
+	// print_numb(stacks);
 	ft_free(stacks, array);
 	free(stacks);
 }
