@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 03:00:53 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/02 16:37:21 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 14:02:51 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ void	extra(t_stacks *stacks, int size, int condition)
 	if (size == 4)
 		stacks->sorted_a++;
 	if (size == 8)
+	{
 		stacks->sel_cond++;
+		stacks->mrg_cond++;
+		stacks->mrg_count++;
+	}
 	if (condition == 0)
 		cont_extra(stacks, size, 1);
 	else if (condition == 1)

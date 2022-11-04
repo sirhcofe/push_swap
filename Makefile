@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/11/02 19:40:13 by chenlee          ###   ########.fr        #
+#    Updated: 2022/11/04 21:32:35 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC				=	check_argv.c			\
 					end_location.c			\
 					error_msg.c				\
 					ft_oddeven.c			\
+					parse_cmd_arg.c			\
 					power.c					\
 					print_numb.c			\
 					solve_stack.c			\
@@ -37,7 +38,8 @@ SRC				=	check_argv.c			\
 					push.c					\
 					rotate.c				\
 					reverse_rotate.c		\
-					swap.c
+					swap.c					\
+					check_solution.c		\
 
 LIBFT			=	libft
 LIBFT_OBJS_DIR	=	libft/objects
@@ -56,15 +58,17 @@ SRCE_DIR		=	libft					\
 					solution				\
 					solution/hard_coded		\
 					solution/merge_sort		\
-					solution/selection_sort
+					solution/selection_sort	\
+					bonus					\
 
 vpath %.c $(SRCE_DIR)
 
-all:				$(NAME) push_swap 
+all:				$(NAME) push_swap
+
+bonus:				all checker
 
 t:					all
-					./push_swap 100   22   64   88   29   74   35   77   61   37   73   50   25   69   16   70   60   53   52   93    2   20   82    6   23   84   76   90   89   71    5   18   86   45   67   92   14   10   48    9   55   33   83   46   39   27   40   65   87   19   28    4   91    3    1   41    7   47   17   49   68   30    8   96   94   99   97   34   81   72   36   85   43   31   56   75   42   62   79   58   80   32   11   15   24   12   51   95   98   66   38   44   78   54   21   26   63   57   59   13
-# ./push_swap 4  12  40  55  43   9  66  69  16  42  11  15  68  14  18  70  30  48  13  34  39  58  64   2   1  67  19  50  27  23  44  37  47  22  59  21  32  52  10  57  35  28  46  36  60  65  31  63  33  29  38   3  41  17  54  62  26  56  24   5  20   6  25   7  53  61  49   8  45  51  
+					./push_swap  30   84   26   99   11   14   38   49   61   86   24   45   42   81   78   27   47   50   89   46   44   83   87   18   68   39   58   95   88    4   57    2   31   96   35   55    8   56   63   59   70   51   10   48   43   21   41    7   79   12   73   40   34   98   72   67   20   69    9   28   22   36   71   23   75   32   92   25   15   76   29   52   90   54   60   65    3    1    5   66   91   85   80   19   82   64   33   93  100   97   94   53   17   16   77    6   74   62   37   13
 
 $(OBJS_DIR)%.o:		%.c
 					@mkdir -p $(OBJS_DIR)
@@ -75,6 +79,12 @@ push_swap:			main.c
 					@$(CC) $(CFLAGS) -I. main.c -L. -lpushswap -Llibft -lft -o push_swap
 					@echo "  ---------------------"
 					@echo " |   Push Swap Done!   |"
+					@echo "  ---------------------"
+
+checker:			bonus.c
+					@$(CC) $(CFLAGS) -I. bonus.c -L. -lpushswap -Llibft -lft -o checker
+					@echo "  ---------------------"
+					@echo " |     Bonus Done!     |"
 					@echo "  ---------------------"
 
 $(NAME):			$(OBJS)

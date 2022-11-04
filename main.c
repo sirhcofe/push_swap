@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:08:51 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/02 16:44:57 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 18:35:40 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ void	ft_free(t_stacks *stacks, char **array)
 
 void	initiate_stack(t_stacks *stacks, char **array)
 {
-	int		i;
+	int	i;
 
 	stacks->len = 0;
 	while (array[stacks->len] != 0)
 		stacks->len++;
-	if (stacks->len == 1)
-		error(3);
 	stacks->a = ft_calloc(stacks->len, sizeof(int));
 	stacks->b = ft_calloc(stacks->len, sizeof(int));
 	stacks->a_len = stacks->len;
@@ -54,33 +52,6 @@ void	initiate_stack(t_stacks *stacks, char **array)
 		stacks->a[i] = (int)ft_atoi(array[i]);
 }
 
-char	**parse_cmd_argument(int argc, char **argv)
-{
-	char	**array;
-	char	*temp;
-	int		i;
-
-	array = NULL;
-	temp = NULL;
-	if (argc < 2)
-		error(1);
-	else if (argc == 2)
-		array = ft_split(argv[1], ' ');
-	else if (argc > 2)
-	{
-		i = 1;
-		while (i < argc)
-		{
-			temp = ft_strjoin(temp, argv[i]);
-			temp = ft_strjoin(temp, " ");
-			i++;
-		}
-		array = ft_split(temp, ' ');
-		free(temp);
-	}
-	return (array);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
@@ -93,7 +64,6 @@ int	main(int argc, char **argv)
 	check_stack(stacks);
 	stacks->end_stack = end_stack_location((long)stacks->a_len);
 	solve_stack(stacks);
-	// print_numb(stacks);
 	ft_free(stacks, array);
 	free(stacks);
 }

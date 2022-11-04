@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 19:03:52 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/01 13:48:27 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 15:18:25 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	error_check(char **array)
 	while (array[i] != 0)
 	{
 		if (ft_atoi(array[i]) > 2147483647 || ft_atoi(array[i]) < -2147483648)
-			error(2);
+			error(5);
 		else
 			continue_error_check(array, i);
 		i++;

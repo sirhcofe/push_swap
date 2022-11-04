@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 18:59:23 by chenlee           #+#    #+#             */
-/*   Updated: 2022/10/31 13:55:36 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 18:35:37 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	check_is_sorted(t_stacks *stacks)
 	int	i;
 
 	i = 0;
+	if (stacks->len == 1)
+		error(3);
 	while (i < stacks->a_len - 1)
 	{
 		if (stacks->a[i] < stacks->a[i + 1])

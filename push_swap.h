@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/28 23:19:43 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 21:33:34 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ typedef struct s_stacks
 	int		end_stack;
 }			t_stacks;
 
+typedef struct s_bonus
+{
+	int	*a;
+	int	*b;
+	int	len;
+}		t_bonus;
+
+char	**parse_cmd_argument(int argc, char **argv);
 void	error(int condition);
 void	error_check(char **array);
 void	check_stack(t_stacks *stacks);
@@ -68,5 +76,7 @@ void	push(t_stacks *stacks, int location);
 void	rotate(t_stacks *stacks, int heap);
 void	r_rotate(t_stacks *stacks, int heap);
 void	swap(t_stacks *stacks, int heap);
+
+void	check_solution(t_bonus *bonus);
 
 #endif

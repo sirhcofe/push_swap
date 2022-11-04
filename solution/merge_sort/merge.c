@@ -6,12 +6,11 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:19:08 by chenlee           #+#    #+#             */
-/*   Updated: 2022/09/27 20:50:47 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 14:07:47 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /**
  * @brief

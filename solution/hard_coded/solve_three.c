@@ -6,12 +6,11 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 21:52:16 by chenlee           #+#    #+#             */
-/*   Updated: 2022/08/24 20:52:46 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/04 14:07:39 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	condition_one(t_stacks *stacks)
 {
