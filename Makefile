@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/11/04 21:32:35 by chenlee          ###   ########.fr        #
+#    Updated: 2022/11/07 21:48:45 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,12 @@ SRC				=	check_argv.c			\
 					rotate.c				\
 					reverse_rotate.c		\
 					swap.c					\
-					check_solution.c		\
+					checker.c				\
+					b_push.c				\
+					b_rotate.c				\
+					b_rrotate.c				\
+					b_swap.c				\
+					get_next_line.c			\
 
 LIBFT			=	libft
 LIBFT_OBJS_DIR	=	libft/objects
@@ -65,7 +70,8 @@ vpath %.c $(SRCE_DIR)
 
 all:				$(NAME) push_swap
 
-bonus:				all checker
+tb:					bonus
+					ARG="33  56677 7 3 2 21 54"; ./push_swap $$ARG | ./checker $$ARG
 
 t:					all
 					./push_swap  30   84   26   99   11   14   38   49   61   86   24   45   42   81   78   27   47   50   89   46   44   83   87   18   68   39   58   95   88    4   57    2   31   96   35   55    8   56   63   59   70   51   10   48   43   21   41    7   79   12   73   40   34   98   72   67   20   69    9   28   22   36   71   23   75   32   92   25   15   76   29   52   90   54   60   65    3    1    5   66   91   85   80   19   82   64   33   93  100   97   94   53   17   16   77    6   74   62   37   13
@@ -81,8 +87,8 @@ push_swap:			main.c
 					@echo " |   Push Swap Done!   |"
 					@echo "  ---------------------"
 
-checker:			bonus.c
-					@$(CC) $(CFLAGS) -I. bonus.c -L. -lpushswap -Llibft -lft -o checker
+checker:			$(NAME) push_swap bonus.c
+					$(CC) $(CFLAGS) -I. bonus.c -L. -lpushswap -Llibft -lft -o checker
 					@echo "  ---------------------"
 					@echo " |     Bonus Done!     |"
 					@echo "  ---------------------"
@@ -91,11 +97,9 @@ $(NAME):			$(OBJS)
 					@make -C $(LIBFT)
 					@ar rc $(NAME) $(OBJS)
 
-bonus:				$(NAME)
-
 clean:
 					@rm -rf $(OBJS_DIR)
-					@rm -rf $(LIBFT_OBJS_DIR) push_swap main.o push_swap.dSYM
+					@rm -rf $(LIBFT_OBJS_DIR) push_swap checker main.o push_swap.dSYM checker.dSYM
 					@echo "Remove: $(OBJS_DIR)"
 					@echo "Remove: $(LIBFT_OBJS_DIR)"
 

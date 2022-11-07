@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:28:59 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/04 21:25:31 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:27:48 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	initiate_bonus(t_bonus *bonus, char **array)
 	bonus->len = 0;
 	while (array[bonus->len] != 0)
 		bonus->len++;
+	bonus->a_len = bonus->len;
+	bonus->b_len = 0;
 	bonus->a = ft_calloc(bonus->len, sizeof(int));
 	bonus->b = ft_calloc(bonus->len, sizeof(int));
 	i = -1;
@@ -61,7 +63,7 @@ void	check_sorted(t_bonus *bonus)
 
 	i = 0;
 	if (bonus->len == 1)
-		error(3);
+		ft_putstr_fd("OK", 1);
 	while (i < bonus->len - 1)
 	{
 		if (bonus->a[i] < bonus->a[i + 1])
@@ -69,11 +71,13 @@ void	check_sorted(t_bonus *bonus)
 		else
 			break;
 	}
-	if (i == bonus->len - 1)
-		error(3);
+	if (i == bonus->len - 1 && bonus->b_len == 0)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 }
 
-int	bonus(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_bonus	*bonus;
 	char	**array;
@@ -82,9 +86,11 @@ int	bonus(int argc, char **argv)
 	error_check(array);
 	bonus = malloc(sizeof(t_bonus));
 	initiate_bonus(bonus, array);
-	check_sorted(bonus);
 	check_duplicate(bonus);
 	check_solution(bonus);
+	check_sorted(bonus);
+	print_numb(bonus);
 	free_bonus(bonus, array);
 	free(bonus);
+	return (0);
 }

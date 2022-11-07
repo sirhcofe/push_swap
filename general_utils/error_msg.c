@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:22:29 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/04 21:29:24 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 17:22:38 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	error(int condition)
 		ft_putstr_fd("Error: No duplicates!\n", 1);
 	else if (condition == 5)
 		ft_putstr_fd("Error: Exceed MAX_INT/MIN_INT!\n", 1);
+	else if (condition == 6)
+	{
+		ft_putstr_fd("Error: Invalid Input", 1);
+		exit(1);
+	}
 	system("leaks push_swap");
 	exit(0);
 }
