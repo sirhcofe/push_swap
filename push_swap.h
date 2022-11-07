@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 21:18:48 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:51:57 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	error(int condition);
 void	error_check(char **array);
 void	check_stack(t_stacks *stacks);
 void	initiate_edge_case(t_stacks *stacks);
-void	print_numb(t_bonus *stacks);
+void	print_numb(t_stacks *stacks);
 long	power_two(int count);
 long	power_ten(int count);
 int		check_edge_case(t_stacks *stacks, int size);

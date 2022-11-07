@@ -6,7 +6,7 @@
 #    By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 16:46:58 by chenlee           #+#    #+#              #
-#    Updated: 2022/11/07 21:48:45 by chenlee          ###   ########.fr        #
+#    Updated: 2022/11/07 21:50:40 by chenlee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ push_swap:			main.c
 					@echo "  ---------------------"
 
 checker:			$(NAME) push_swap bonus.c
-					$(CC) $(CFLAGS) -I. bonus.c -L. -lpushswap -Llibft -lft -o checker
+					@$(CC) $(CFLAGS) -I. bonus.c -L. -lpushswap -Llibft -lft -o checker
 					@echo "  ---------------------"
 					@echo " |     Bonus Done!     |"
 					@echo "  ---------------------"

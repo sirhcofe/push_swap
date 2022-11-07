@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:28:59 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 21:27:48 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:51:46 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	main(int argc, char **argv)
 	check_duplicate(bonus);
 	check_solution(bonus);
 	check_sorted(bonus);
-	print_numb(bonus);
 	free_bonus(bonus, array);
 	free(bonus);
 	return (0);
