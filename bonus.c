@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:28:59 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 21:51:46 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 22:17:27 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,24 @@ void	check_duplicate(t_bonus *bonus)
 	}
 }
 
-void	check_sorted(t_bonus *bonus)
+int	check_sorted(t_bonus *bonus)
 {
 	int	i;
 
 	i = 0;
 	if (bonus->len == 1)
-		ft_putstr_fd("OK", 1);
+		return (0);
 	while (i < bonus->len - 1)
 	{
 		if (bonus->a[i] < bonus->a[i + 1])
 			i++;
 		else
-			break;
+			break ;
 	}
 	if (i == bonus->len - 1 && bonus->b_len == 0)
-		ft_putstr_fd("OK\n", 1);
+		return (0);
 	else
-		ft_putstr_fd("KO\n", 1);
+		return (1);
 }
 
 int	main(int argc, char **argv)
@@ -88,8 +88,12 @@ int	main(int argc, char **argv)
 	initiate_bonus(bonus, array);
 	check_duplicate(bonus);
 	check_solution(bonus);
-	check_sorted(bonus);
+	if (check_sorted(bonus) == 0)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 	free_bonus(bonus, array);
 	free(bonus);
+	system("leaks checker");
 	return (0);
 }

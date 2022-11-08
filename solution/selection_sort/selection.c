@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 16:17:36 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/04 14:07:20 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:57:31 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ void	selection_sort(t_stacks *stacks, int front, int rear)
 	if (rear - front >= 8)
 		modify_mrg_condcount(stacks);
 }
-

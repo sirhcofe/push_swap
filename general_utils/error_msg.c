@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:22:29 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 17:22:38 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 22:21:31 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	error(int condition)
 		ft_putstr_fd("Error: Invalid Input", 1);
 		exit(1);
 	}
-	system("leaks push_swap");
+	else if (condition == 7)
+		ft_putstr_fd("KO\n", 1);
 	exit(0);
 }

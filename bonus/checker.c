@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:56:55 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 21:27:19 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 22:22:25 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,23 @@ int	check_execute_input(t_bonus *bonus, char *str)
 	return (0);
 }
 
-#include <stdio.h>
 void	check_solution(t_bonus *bonus)
 {
 	char	*input;
-	(void)bonus;
 
 	while (1)
 	{
 		input = get_next_line(0);
 		if (input == NULL || ft_strcmp(input, "\n") == 0)
 			break ;
+		else if (ft_strncmp(input, "Already", 7) == 0
+			&& check_sorted(bonus) == 0)
+			error(3);
+		else if (ft_strncmp(input, "Already", 7) == 0
+			&& check_sorted(bonus) != 0)
+			error(7);
 		else if (check_execute_input(bonus, input) == 1)
 			error(6);
+		free(input);
 	}
 }

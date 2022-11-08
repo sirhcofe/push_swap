@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:10:21 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 21:51:57 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/07 22:15:20 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	solve_five(t_stacks *stacks);
 void	merge_sort(t_stacks *stacks, int front, int middle, int rear);
 void	continue_merge(t_stacks *stacks, int condition);
 
-
 // mandatory - selection
 void	selection_sort(t_stacks *stacks, int front, int rear);
 void	selection_to_a(t_stacks *stacks, int size);
@@ -79,7 +78,6 @@ void	selection_to_b(t_stacks *stacks, int size);
 void	plus_sel_stack(t_stacks *stacks, int stack, int size);
 void	extra(t_stacks *stacks, int size, int condition);
 int		rotate_or_not(t_stacks *stacks, int size, int stack);
-
 
 // mandatory - instruction
 void	move_stack(int *array, int size, int direction);
@@ -89,8 +87,9 @@ void	r_rotate(t_stacks *stacks, int heap);
 void	swap(t_stacks *stacks, int heap);
 
 // bonus
-void	check_solution(t_bonus *bonus);
+int		check_sorted(t_bonus *bonus);
 char	*get_next_line(int fd);
+void	check_solution(t_bonus *bonus);
 void	b_push(t_bonus *bonus, int location);
 void	b_rotate(t_bonus *bonus, int heap);
 void	b_rrotate(t_bonus *bonus, int heap);
