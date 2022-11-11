@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:22:29 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 22:21:31 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/11 15:59:13 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	error(int condition)
 	}
 	else if (condition == 7)
 		ft_putstr_fd("KO\n", 1);
+	else if (condition == 8)
+		ft_putstr_fd("Error\n", 1);
 	exit(0);
 }

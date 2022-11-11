@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 16:29:24 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 20:34:15 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/11 16:30:16 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*join_and_free(char *buffer, char *temp)
 {
 	char	*pepega;
 
-	pepega = ft_strjoin(buffer, temp);
+	pepega = ft_strjoin(buffer, temp, 1);
 	free(buffer);
 	buffer = 0;
 	return (pepega);

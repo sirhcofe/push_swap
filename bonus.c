@@ -6,7 +6,7 @@
 /*   By: chenlee <chenlee@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:28:59 by chenlee           #+#    #+#             */
-/*   Updated: 2022/11/07 22:17:27 by chenlee          ###   ########.fr       */
+/*   Updated: 2022/11/11 16:35:39 by chenlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,5 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("KO\n", 1);
 	free_bonus(bonus, array);
 	free(bonus);
-	system("leaks checker");
 	return (0);
 }
